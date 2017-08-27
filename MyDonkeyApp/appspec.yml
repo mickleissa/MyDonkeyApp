@@ -1,0 +1,19 @@
+version: 0.0
+os: windows
+files:
+- source: \MyDonkeyApp.exe
+  destination: c:\temp\MyDonkeyApp
+- source: \MyDonkeyApp.exe.config
+  destination: c:\temp\MyDonkeyApp
+- source: \DeploymentScripts
+  destination: c:\temp\MyDonkeyApp\DeploymentScripts
+
+hooks:
+ BeforeInstall:
+  - location: \DeploymentScripts\PSSample-BeforeInstall.ps1
+    timeout: 600
+ AfterInstall:
+  - location: \DeploymentScripts\PSSample-AfterInstall.ps1
+    timeout: 600
+
+
